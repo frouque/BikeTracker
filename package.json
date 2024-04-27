@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd BikeTrackerExpressBackend && npm start",
+    "client": "cd BikeTrackerReactClient && npm start",
+    "build": "cd BikeTrackerReactClient && npm run build"
+  }
+}
