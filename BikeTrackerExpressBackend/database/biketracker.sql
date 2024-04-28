@@ -6,18 +6,18 @@ CREATE DATABASE biketracker;
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     first_name VARCHAR,
-    last_name VARCHAR,
-    email VARCHAR,
-    salt VARCHAR,
-    passhash VARCHAR,
-    profile_picture BYTEA
+    last_name VARCHAR
+    -- email VARCHAR,
+    -- salt VARCHAR,
+    -- passhash VARCHAR,
+    -- profile_picture BYTEA
 );
 
 CREATE TABLE trackers (
     tracker_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
-    name VARCHAR,
-    tracker_image BYTEA
+    name VARCHAR
+    -- tracker_image BYTEA
 );
 
 CREATE TYPE ride_status_type AS ENUM ('ongoing', 'ended');
