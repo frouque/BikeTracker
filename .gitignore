@@ -245,4 +245,5 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react,flutter,kotlin
 
-dbConfig.js
+db_config.js
+constants.dart

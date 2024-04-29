@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'http_requests.dart';
+
+import 'models/ride.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +36,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _rideStarted = false;
   String _apiResponse = 'No response to show';
+  int trackerId = 1;
+  int? currentRideId;
 
   void _getAllRides() {
     setState(() {
@@ -43,11 +48,22 @@ class _MyHomePageState extends State<MyHomePage> {
   void _toggleRide() {
     setState(() {
       if (!_rideStarted) {
-
-      } else {}
+        _startRide();
+      } else {
+        _endRide();
+      }
 
       _rideStarted = !_rideStarted;
     });
+  }
+
+  void _startRide() async {
+    currentRideId = (await createRide(trackerId)).map['ride_id'];
+  }
+
+  void _endRide() async {
+    await updateRide(currentRideId!, 'ended');
+    currentRideId = null;
   }
 
   @override

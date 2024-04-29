@@ -19,6 +19,6 @@ router.post('/rides', db.createRide);
 router.post('/trackers', db.createTracker);
 router.post('/users', db.createUser);
 
-router.put('/rides/:rideid', db.updateRide);
+router.put('/rides/:ride_id', db.updateRide);
 
 module.exports = router;
